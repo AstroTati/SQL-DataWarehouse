@@ -4,6 +4,8 @@ Stored procedure: Load bronze layer (source --> bronze)
     This procedure loads data from source CSV files into the bronze layer tables.
     The tables are truncated first, then bulk insert is used.
 
+    Don't forget to change your file path accordingly for each BULK INSERT.
+
     use 'EXEC bronze.load_bronze;' to run it.
 _______________________________________________________________________________
 */
