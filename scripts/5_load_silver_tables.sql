@@ -59,7 +59,7 @@ BEGIN
             SELECT *,
             ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) as flag_last
             FROM bronze.crm_cust_info
-        )t WHERE flag_last = 1 
+        )t WHERE flag_last = 1 AND cst_create_date > '1900-01-01'
         SET @end_time = GETDATE();
         -- Uncomment this for more detailed time stamp: 
         -- PRINT 'INFO Load duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds.';
@@ -204,11 +204,11 @@ BEGIN
         )
         SELECT
             REPLACE(cid,'-','') AS cid, 
-            CASE WHEN UPPER(TRIM(cntry)) = 'USA' THEN 'United States'
-                WHEN UPPER(TRIM(cntry)) = 'US'  THEN 'United States'
-                WHEN UPPER(TRIM(cntry)) = 'DE'  THEN 'Germany'
-                WHEN cntry = '' THEN 'N/A'
-                ELSE cntry
+            CASE WHEN TRIM(cntry) = 'USA' THEN 'United States'
+                WHEN TRIM(cntry) = 'US'  THEN 'United States'
+                WHEN TRIM(cntry) = 'DE'  THEN 'Germany'
+                WHEN TRIM(cntry) = '' OR cntry IS NULL THEN 'N/A'
+                ELSE TRIM(cntry)
             END AS cntry
         FROM bronze.erp_loc_a101
         SET @end_time = GETDATE();
@@ -234,8 +234,12 @@ BEGIN
             id,
             TRIM(cat) AS cat,
             TRIM(subcat) AS subcat,
-            maintenance
-        from bronze.erp_px_cat_g1v2
+            CASE UPPER(TRIM(maintenance))
+            	WHEN 'Y' THEN 'Yes'
+				WHEN 'N' THEN 'No'
+				ELSE maintenance
+			END AS maintenance
+            from bronze.erp_px_cat_g1v2
         SET @end_time = GETDATE();
         -- Uncomment this for more detailed time stamp: 
         -- PRINT 'INFO Load duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds.';
@@ -262,3 +266,4 @@ BEGIN
         PRINT '___________________________________________________'
     END CATCH
 END
+
