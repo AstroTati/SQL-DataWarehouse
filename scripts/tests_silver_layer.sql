@@ -201,10 +201,14 @@ SELECT DISTINCT cntry FROM silver.erp_loc_a101
 -- ==========================================================================================
 -- Checks for the erp_px_cat_g1v2 table
 -- ==========================================================================================
--- Uniqueness and validity of variables:
+-- Standarization, consistency and unwanted spaces:
 
 SELECT DISTINCT cat FROM silver.erp_px_cat_g1v2
+WHERE cat != TRIM(cat)
 
 SELECT DISTINCT subcat FROM silver.erp_px_cat_g1v2
+WHERE subcat != TRIM(subcat)
 
 SELECT DISTINCT maintenance FROM silver.erp_px_cat_g1v2
+WHERE maintenance != TRIM(maintenance)
+
