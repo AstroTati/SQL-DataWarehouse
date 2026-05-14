@@ -59,7 +59,7 @@ BEGIN
             SELECT *,
             ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) as flag_last
             FROM bronze.crm_cust_info
-        )t WHERE flag_last = 1 AND cst_create_date > '1900-01-01'
+        )t WHERE flag_last = 1 
         SET @end_time = GETDATE();
         -- Uncomment this for more detailed time stamp: 
         -- PRINT 'INFO Load duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds.';
