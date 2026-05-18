@@ -1,11 +1,15 @@
 /*
 _______________________________________________________________________________
-Stored procedure: Load silver layer (source --> silver)
-    This procedure loads data from the bronze layer into the silver layer tables.
-    The tables are truncated first, then insert into is used.
-    The data is also cleaned and transformed.
+Stored procedure: Load Silver layer (source --> silver)
+Author:       Tatiana Rodriguez
+Last updated: 2026-05-11
+Layer:        Silver
 
-    use 'EXEC silver.load_silver;' to run it.
+This procedure loads data from the bronze layer into the silver layer tables.
+The tables are truncated first, then insert into is used.
+The data is also cleaned and transformed.
+
+use 'EXEC silver.load_silver;' to run it.
 _______________________________________________________________________________
 */
 
@@ -44,12 +48,10 @@ BEGIN
             cst_key,
             TRIM(cst_firstname) AS cst_firstname,
             TRIM(cst_lastname) AS cst_lastname,
-            -- We include a data transformation step to have clearer information:
             CASE WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'Married'
                 WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'Single'
                 ELSE 'N/A'
             END AS cst_marital_status,
-            -- We include a data transformation step to have clearer information:
             CASE WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female'
                 WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
                 ELSE 'N/A'
