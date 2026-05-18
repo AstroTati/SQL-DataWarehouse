@@ -1,15 +1,16 @@
 /*
 _______________________________________________________________________________
 DDL Script: Create Bronze Tables
-    Creates the tables needed for the 'bronze' schema after checking if they 
-    exist and dropping them if so. 
-	Run this script to re-define the DDL structure of 'bronze' Tables.
+Author:       Tatiana Rodriguez
+Last updated: 2026-05-10
+Layer:        Bronze
+    
+Creates the tables needed for the 'bronze' schema after checking if they 
+exist and dropping them if so. 
+
+Run this script to re-define the DDL structure of 'Bronze' Tables.
 _______________________________________________________________________________
 */
-
-USE datawarehouse_TMR;
-GO
-
 
 PRINT '============================================================'
 PRINT 'START: BRONZE LAYER TABLES CREATION'
@@ -102,8 +103,4 @@ PRINT 'FINISH: BRONZE LAYER TABLES CREATION'
 PRINT '============================================================'
 
 
-
-PRINT '============================================================'
-PRINT 'FINISH: TABLES CREATION'
-PRINT '============================================================'
 
