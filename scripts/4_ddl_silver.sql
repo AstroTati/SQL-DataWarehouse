@@ -1,15 +1,16 @@
 /*
 _______________________________________________________________________________
 DDL Script: Create Silver Tables
-    Creates the tables needed for the 'silver' schema after checking if they 
-    exist and dropping them if so. 
-	Run this script to re-define the DDL structure of 'silver' Tables.
+Author:       Tatiana Rodriguez
+Last updated: 2026-05-11
+Layer:        Silver
+
+Creates the tables needed for the 'silver' schema after checking if they exist 
+and dropping them if so. 
+
+Run this script to re-define the DDL structure of 'silver' Tables.
 _______________________________________________________________________________
 */
-
-USE datawarehouse_TMR;
-GO
-
 
 PRINT '============================================================'
 PRINT 'START: SILVER LAYER TABLES CREATION'
