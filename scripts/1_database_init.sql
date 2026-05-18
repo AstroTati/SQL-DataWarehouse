@@ -1,14 +1,18 @@
 /* 
-PROJECT INITIALIZATION: CREATE DATABASE AND SCHEMAS
-=====================================================
+_________________________________________________________________________________________
+Project Initialization: Create database and schemas
+Author:       Tatiana Rodriguez
+Last updated: 2026-05-10
+
 This script creates a database (db) named 'datawarehouse_TMR' (TMR are my initials).
 It will first check if the db already exists, in which case it will drop it. 
-Once the db is created, it will create three schemas: 'bronze', 'silver', and 'gold'.
+Once the db is created, it will create three schemas: 'Bronze', 'Silver', and 'Gold'.
 
-WARNING:
-    It will drop any existing db with the same name. This is irreversible and will 
-    delete everything the db contains. Make backups and proceed with caution.
+WARNING: It will drop any existing db with the same name. This is irreversible and will 
+delete everything the db contains. Make backups and proceed with caution.
+_________________________________________________________________________________________
 */
+
 USE master;
 GO
 
