@@ -3,7 +3,7 @@ _______________________________________________________________________________
 DDL Gold layer (Silver --> Gold)
 Author:       Tatiana Rodriguez
 Last updated: 2026-05-18
-Layer:        Silver
+Layer:        Gold
 
 This procedure creates the Gold layer views.
 Existing views with the same name are dropped before creating.
