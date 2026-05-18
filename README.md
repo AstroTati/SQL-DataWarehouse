@@ -8,13 +8,13 @@ A end-to-end data warehousing solution built with SQL Server, covering ingestion
 
 This project is structured around the **Medallion Architecture**, organizing data across three distinct layers:
 
-![Data Architecture Diagram](docs/data_architecture.png)
+![Data Architecture Diagram](docs/HighLevelArchitecture_TMR.png)
 
 | Layer | Purpose |
 |-------|---------|
-| **Bronze** | Raw data landed directly from source CSV files — no transformations applied |
-| **Silver** | Cleansed, standardized, and normalized data ready for integration |
-| **Gold** | Business-ready star schema tables optimized for reporting and analytics |
+| **Bronze** | Raw data landed directly from source CSV files, no transformations applied. |
+| **Silver** | Cleansed, standardized, and normalized data ready for integration. |
+| **Gold** | Business-ready (Star schema) tables optimized for reporting and analytics. |
 
 ---
 
@@ -22,10 +22,10 @@ This project is structured around the **Medallion Architecture**, organizing dat
 
 This project walks through the full lifecycle of a data warehouse build:
 
-- **Ingestion** — Loading raw CSV data from ERP and CRM source systems into the Bronze layer
-- **Transformation** — Cleaning, deduplicating, and standardizing data in the Silver layer
-- **Modeling** — Building fact and dimension tables in the Gold layer using a star schema
-- **Analytics** — Writing SQL queries to surface insights around sales performance, customer behavior, and product trends
+- **Ingestion**: Loading raw CSV data from ERP and CRM source systems into the Bronze layer
+- **Transformation**: Cleaning, deduplicating, and standardizing data in the Silver layer
+- **Modeling**: Building fact and dimension tables in the Gold layer using a star schema
+- **Analytics**: Writing SQL queries to surface insights around sales performance, customer behavior, and product trends
 
 ---
 
@@ -49,11 +49,10 @@ sql-data-warehouse-project/
 ├── datasets/                    # Source CSV files (ERP and CRM data)
 │
 ├── docs/                        # Architecture diagrams and documentation
-│   ├── data_architecture.drawio
-│   ├── data_flow.drawio
-│   ├── data_models.drawio
-│   ├── data_catalog.md          # Field-level descriptions for all tables
-│   └── naming_conventions.md   # Standards for table and column naming
+│   ├── data architecture        
+│   ├── data models              
+│   ├── data catalog             # Field-level descriptions for all tables
+│   └── naming conventions       # Standards for table and column naming
 │
 ├── scripts/                     # All SQL scripts, organized by layer
 │   ├── bronze/                  # Raw data loading scripts
@@ -86,9 +85,9 @@ sql-data-warehouse-project/
 
 **Goal:** Deliver SQL-based insights across three core areas:
 
-- **Sales Trends** — Period-over-period performance, revenue patterns
-- **Customer Behavior** — Segmentation, purchase frequency, lifetime value
-- **Product Performance** — Top/bottom performers, category breakdowns
+- **Sales Trends**: Period-over-period performance, revenue patterns
+- **Customer Behavior**: Segmentation, purchase frequency, lifetime value
+- **Product Performance**: Top/bottom performers, category breakdowns
 
 ---
 
@@ -126,10 +125,10 @@ sql-data-warehouse-project/
 
 The Gold layer follows a **star schema** design:
 
-- **Fact table:** `fact_sales` — one row per sales transaction
-- **Dimension tables:** `dim_customers`, `dim_products`, `dim_date`
+- **Fact table:** `fact_sales` (one row per sales transaction).
+- **Dimension tables:** `dim_customers`, `dim_products`
 
-Refer to `docs/data_models.drawio` for the full ERD and `docs/data_catalog.md` for field-level documentation.
+Refer to `docs/DataIntegrationModel_TMR.png` for the full ERD and `docs/data_catalog.md` for field-level documentation.
 
 ---
 
