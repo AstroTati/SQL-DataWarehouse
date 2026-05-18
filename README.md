@@ -51,7 +51,7 @@ sql-data-warehouse-project/
 ├── docs/                        # Architecture diagrams and documentation
 │   ├── data architecture        
 │   ├── data models              
-│   ├── data catalog             # Field-level descriptions for all tables
+│   ├── data catalogue           # Field-level descriptions for all tables
 │   └── naming conventions       # Standards for table and column naming
 │
 ├── scripts/                     # All SQL scripts, organized by layer
