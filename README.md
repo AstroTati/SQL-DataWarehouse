@@ -58,6 +58,7 @@ sql-data-warehouse-project/
 │   ├── bronze/                  # Raw data loading scripts
 │   ├── silver/                  # Cleansing and transformation scripts
 │   └── gold/                    # Star schema and analytical model scripts
+│   └── analysis/                # Data analysis scripts
 │
 ├── tests/                       # Data quality checks and validation scripts
 │
