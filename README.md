@@ -1,6 +1,6 @@
 # SQL Data Warehouse Project
 
-A end-to-end data warehousing solution built with SQL Server, covering ingestion, transformation, and analytical reporting across a retail sales domain.
+An end-to-end data warehousing solution built with SQL Server, covering ingestion, transformation, and analytical reporting across a retail sales domain.
 
 ---
 
@@ -89,36 +89,6 @@ sql-data-warehouse-project/
 - **Sales Trends**: Period-over-period performance, revenue patterns
 - **Customer Behavior**: Segmentation, purchase frequency, lifetime value
 - **Product Performance**: Top/bottom performers, category breakdowns
-
----
-
-## ⚙️ Getting Started
-
-### Prerequisites
-
-- [SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) — free edition, sufficient for this project
-- [Visual Studio Code](https://code.visualstudio.com/) with the [SQL Server (mssql) extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) — for writing and executing scripts
-
-### Setup Steps
-
-1. Clone this repository
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/sql-data-warehouse-project.git
-   ```
-
-2. Open SSMS and connect to your local SQL Server instance
-
-3. Run the database initialization script:
-   ```
-   scripts/init_database.sql
-   ```
-
-4. Execute scripts in layer order:
-   - `scripts/bronze/` — load raw source data
-   - `scripts/silver/` — apply transformations
-   - `scripts/gold/` — build the analytical model
-
-5. Explore the analytics queries in `scripts/gold/` to validate the output
 
 ---
 
